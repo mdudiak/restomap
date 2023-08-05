@@ -1,8 +1,8 @@
 <script>
 	import Map from './Map.svelte';
 	import MapMarker from './MapMarker.svelte';
-	import { markers } from '../stores.js';
 	import Card from './Card.svelte';
+	import { markers } from '../stores.js';
 
 	export let data;
 
@@ -19,15 +19,36 @@
 		$markers.forEach((el) => el.remove());
 	};
 
+	let labels;
+	let details;
+	let url;
+
+	let popupInfo = [];
+
+	$: popupInfo;
+
+	const getPopupInfo = (label, details, url) => {
+		popupInfo = [label, details, url];
+	};
+
 	$: choices, removeMarkers();
 </script>
 
 <div class="container">
+	<div class="card__wrapper">
+		<Card label={popupInfo[0]} details={popupInfo[1]} url={popupInfo[2]} />
+	</div>
 	<div class="map-wrapper">
 		<Map lat={45.50286} lon={-73.569299} zoom={12}>
 			{#key choices}
 				{#each choices as resto, index}
-					<MapMarker lat={resto.lat} lon={resto.lon} label={resto.label} bind={$markers[index]} />
+					<MapMarker
+						lat={resto.lat}
+						lon={resto.lon}
+						label={resto.label}
+						bind={$markers[index]}
+						on:popup={() => getPopupInfo(resto.label, resto.details, resto.url)}
+					/>
 				{/each}
 			{/key}
 		</Map>
@@ -56,25 +77,32 @@
 <style>
 	.container {
 		width: 90vw;
-		height: 90vh;
+		height: 100vh;
 		margin: 0 auto;
 		display: grid;
 		place-content: center;
 		place-items: center;
 		grid-template-columns: repeat(2, 1fr);
-		grid-template-rows: repeat(2, 1fr) 0.5fr;
+		grid-template-rows: repeat(3, 1fr) 0.5fr;
 	}
 
 	.map-wrapper {
 		width: 100%;
 		height: 100%;
-		grid-row: 1 / 3;
+		grid-row: 2 / 4;
+		grid-column: 1 / -1;
+	}
+
+	.card__wrapper {
+		width: 100%;
+		height: 100%;
+		grid-row: 1 / 2;
 		grid-column: 1 / -1;
 	}
 
 	aside {
 		width: 100%;
-		grid-row: 3 / -1;
+		grid-row: 4 / -1;
 		grid-column: 1 / -1;
 		border-radius: 5px;
 		box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.25);
