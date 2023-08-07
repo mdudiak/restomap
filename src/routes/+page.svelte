@@ -88,6 +88,7 @@
 		place-content: center;
 		place-items: center;
 		gap: 1rem;
+		color: var(--color-primary);
 	}
 
 	.map-wrapper {
@@ -110,7 +111,7 @@
 		grid-row: 4 / -1;
 		grid-column: 1 / -1;
 		border-radius: 5px;
-		box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.25);
+		box-shadow: 0px 0px 4px var(--color-shadow);
 		display: flex;
 		flex-direction: row;
 		align-items: center;
@@ -126,11 +127,39 @@
 		aspect-ratio: 4 / 3;
 		background: none;
 		border-radius: 5px;
-		box-shadow: none;
-		border: 2px solid rgba(0, 0, 0, 0.5);
+		border: none;
+		box-shadow: 2px 2px 4px var(--color-shadow);
 		transition: all 0.25s;
+		color: var(--color-primary);
 	}
 	button:hover {
-		border: 4px solid rgba(0, 0, 0, 0.5);
+		box-shadow: 4px 4px 8px var(--color-shadow);
+		color: var(--color-secondary);
+		background-color: var(--color-primary);
+	}
+
+	@media (prefers-color-scheme: dark) {
+		.page {
+			background-color: var(--color-primary);
+		}
+
+		ul {
+			box-shadow: 2px 2px 4px var(--color-glow);
+			border: 1px solid var(--color-purp);
+		}
+
+		button {
+			color: var(--color-secondary);
+			background-color: var(--color-primary);
+			box-shadow: 2px 2px 4px var(--color-glow);
+			border: 1px solid var(--color-purp);
+		}
+
+		button:hover {
+			color: var(--color-primary);
+			background-color: var(--color-secondary);
+			border: 2px solid var(--color-purp);
+			box-shadow: 2px 2px 4px var(--color-glow);
+		}
 	}
 </style>

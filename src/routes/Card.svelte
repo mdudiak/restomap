@@ -28,6 +28,14 @@
 		justify-content: center;
 		padding: 2rem;
 		border-radius: 5px;
-		box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.25);
+		box-shadow: 2px 2px 4px var(--color-shadow);
+	}
+
+	@media (prefers-color-scheme: dark) {
+		.card {
+			color: var(--color-secondary);
+			box-shadow: 2px 2px 4px var(--color-glow);
+			border: 1px solid var(--color-purp);
+		}
 	}
 </style>
