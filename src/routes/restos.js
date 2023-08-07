@@ -85,7 +85,7 @@ export const restaurants = [
 		lon: -73.60193664509964,
 		details: 'Famous Montréal Bagels',
 		url: 'http://www.stviateurbagel.com/',
-		category: 'brunch'
+		category: 'bagel'
 	},
 	{
 		label: 'Crew Collective Cafe',

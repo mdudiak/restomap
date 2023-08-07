@@ -1,4 +1,5 @@
 <script>
+	import '../app.css';
 	import Map from './Map.svelte';
 	import MapMarker from './MapMarker.svelte';
 	import Card from './Card.svelte';
@@ -7,6 +8,37 @@
 	export let data;
 
 	const { restos } = data;
+
+	const categories = restos.map((el) => el.category);
+	const uniqueAmounts = categories.reduce(function (obj, cat) {
+		if (!obj[cat]) {
+			obj[cat] = 1;
+		} else {
+			obj[cat]++;
+		}
+		return obj;
+	}, {});
+
+	const uniqueCategories = Object.keys(uniqueAmounts);
+	console.log(uniqueCategories);
+
+	// for (i=0; i<categories.length; i++) {
+	// 	let inc = 0;
+	// if (category[i] !== uniqueCategories[inc]) {
+	// 	uniqueCategories.push(category[i]);
+	// 	inc++
+	// }
+	// if (category[i] !== uniqueCategories[inc + 1]) {
+	// 	uniqueCategories.push(category[i+1]);
+	// 	inc++
+	// }
+	// if (category[i] !== uniqueCategories[inc + 2]) {
+	// 	uniqueCategories.push(category[i+2]);
+	// 	inc++
+	// }
+	// }
+
+	console.log(categories);
 
 	let choices = [];
 
@@ -19,10 +51,6 @@
 		$markers.forEach((el) => el.remove());
 	};
 
-	let labels;
-	let details;
-	let url;
-
 	let popupInfo = [];
 
 	$: popupInfo;
@@ -34,31 +62,38 @@
 	$: choices, removeMarkers();
 </script>
 
-<div class="container">
-	<div class="card__wrapper">
-		<Card label={popupInfo[0]} details={popupInfo[1]} url={popupInfo[2]} />
-	</div>
-	<div class="map-wrapper">
-		<Map lat={45.50286} lon={-73.569299} zoom={12}>
-			{#key choices}
-				{#each choices as resto, index}
-					<MapMarker
-						lat={resto.lat}
-						lon={resto.lon}
-						label={resto.label}
-						bind={$markers[index]}
-						on:popup={() => getPopupInfo(resto.label, resto.details, resto.url)}
-					/>
-				{/each}
+<div class="page">
+	<div class="container">
+		<div class="card-wrapper">
+			{#key popupInfo}
+				<Card label={popupInfo[0]} details={popupInfo[1]} url={popupInfo[2]} />
 			{/key}
-		</Map>
-	</div>
-	<!-- {#if $markers[index].popup.isOpen()}
+		</div>
+		<div class="map-wrapper">
+			<Map lat={45.50286} lon={-73.569299} zoom={12}>
+				{#key choices}
+					{#each choices as resto, index}
+						<MapMarker
+							lat={resto.lat}
+							lon={resto.lon}
+							label={resto.label}
+							bind={$markers[index]}
+							on:popup={() => getPopupInfo(resto.label, resto.details, resto.url)}
+						/>
+					{/each}
+				{/key}
+			</Map>
+		</div>
+		<!-- {#if $markers[index].popup.isOpen()}
 						<Card label={resto.label} details={resto.details} url={resto.url}/>
 					{/if} -->
-	<aside>
 		<ul>
-			<li>
+			{#each uniqueCategories as category}
+				<li>
+					<button on:click={() => getChoices(category)}>{category}</button>
+				</li>
+			{/each}
+			<!-- <li>
 				<button on:click={() => getChoices('coffee')}>Coffee</button>
 			</li>
 			<li>
@@ -69,21 +104,31 @@
 			</li>
 			<li>
 				<button on:click={() => getChoices('drinks')}>Drinks</button>
-			</li>
+			</li> -->
 		</ul>
-	</aside>
+	</div>
 </div>
 
 <style>
+	.page {
+		width: 100vw;
+		height: 100vh;
+		position: relative;
+	}
+
 	.container {
 		width: 90vw;
-		height: 100vh;
-		margin: 0 auto;
+		height: 90vh;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
 		display: grid;
-		place-content: center;
-		place-items: center;
 		grid-template-columns: repeat(2, 1fr);
 		grid-template-rows: repeat(3, 1fr) 0.5fr;
+		place-content: center;
+		place-items: center;
+		gap: 1rem;
 	}
 
 	.map-wrapper {
@@ -93,23 +138,20 @@
 		grid-column: 1 / -1;
 	}
 
-	.card__wrapper {
+	.card-wrapper {
 		width: 100%;
 		height: 100%;
 		grid-row: 1 / 2;
 		grid-column: 1 / -1;
 	}
 
-	aside {
+	ul {
 		width: 100%;
+		height: 100%;
 		grid-row: 4 / -1;
 		grid-column: 1 / -1;
 		border-radius: 5px;
 		box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.25);
-	}
-
-	ul {
-		place-self: center;
 		display: flex;
 		flex-direction: row;
 		align-items: center;
