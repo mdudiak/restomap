@@ -33,8 +33,7 @@
 
 	@media (prefers-color-scheme: dark) {
 		.card {
-			color: var(--color-secondary);
-			box-shadow: 2px 2px 4px var(--color-glow);
+			color: var(--color-glow);
 			border: 1px solid var(--color-purp);
 		}
 	}

@@ -9,14 +9,21 @@
 	export let lat;
 	export let lon;
 	export let zoom;
+	export let dark = false;
 
 	let container;
 	let map;
 
+	let mapStyle;
+
+	$: dark
+		? (mapStyle = 'mapbox://styles/mapbox/dark-v11')
+		: (mapStyle = 'mapbox://styles/mapbox/light-v11');
+
 	function load() {
 		map = new mapbox.Map({
 			container,
-			style: 'mapbox://styles/mapbox/streets-v9',
+			style: mapStyle,
 			center: [lon, lat],
 			zoom
 		});
@@ -45,5 +52,6 @@
 		height: 100%;
 		border-radius: 5px;
 		box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.25);
+		border: 1px solid var(--color-purp);
 	}
 </style>

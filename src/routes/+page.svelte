@@ -1,4 +1,5 @@
 <script>
+	import { onMount } from 'svelte';
 	import '../app.css';
 	import Map from './Map.svelte';
 	import MapMarker from './MapMarker.svelte';
@@ -6,6 +7,8 @@
 	import { markers } from '../stores.js';
 
 	export let data;
+
+	let dark = false;
 
 	const { restos } = data;
 	let motherShip;
@@ -37,8 +40,14 @@
 		popupInfo = [label, details, url];
 	};
 
+	const getUserPref = () => {
+		matchMedia('(prefers-color-scheme: dark)').matches ? (dark = true) : (dark = false);
+	};
+
 	$: choices, removeMarkers();
 </script>
+
+<svelte:window on:change={getUserPref()} />
 
 <div class="page">
 	<div class="container">
@@ -48,7 +57,7 @@
 			{/key}
 		</div>
 		<div class="map-wrapper">
-			<Map lat={45.50286} lon={-73.569299} zoom={12}>
+			<Map {dark} lat={45.50286} lon={-73.569299} zoom={12}>
 				{#key choices}
 					<MapMarker
 						lat={45.50289552120013}
@@ -72,7 +81,7 @@
 
 		<ul>
 			<li>
-				<button on:click={() => (choices = [...restos])}>All</button>
+				<button on:click={() => (choices = [...restos])}>all</button>
 			</li>
 			{#each uniqueCategories as category}
 				<li>
@@ -139,7 +148,8 @@
 
 	button {
 		padding: 10px;
-		aspect-ratio: 4 / 3;
+		height: 100%;
+		width: 100%;
 		background: none;
 		border-radius: 5px;
 		border: none;
@@ -159,22 +169,19 @@
 		}
 
 		ul {
-			box-shadow: 2px 2px 4px var(--color-glow);
 			border: 1px solid var(--color-purp);
 		}
 
 		button {
-			color: var(--color-secondary);
+			color: var(--color-glow);
 			background-color: var(--color-primary);
-			box-shadow: 2px 2px 4px var(--color-glow);
 			border: 1px solid var(--color-purp);
 		}
 
 		button:hover {
 			color: var(--color-primary);
-			background-color: var(--color-secondary);
-			border: 2px solid var(--color-purp);
-			box-shadow: 2px 2px 4px var(--color-glow);
+			background-color: var(--color-glow);
+			border: 3px solid var(--color-purp);
 		}
 	}
 </style>
