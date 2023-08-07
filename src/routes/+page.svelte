@@ -8,6 +8,7 @@
 	export let data;
 
 	const { restos } = data;
+	let motherShip;
 
 	const categories = restos.map((el) => el.category);
 
@@ -23,6 +24,10 @@
 	const removeMarkers = () => {
 		$markers.forEach((el) => el.remove());
 	};
+
+	console.log(restos);
+
+	$: console.log('choices', choices);
 
 	let popupInfo = [];
 
@@ -45,11 +50,18 @@
 		<div class="map-wrapper">
 			<Map lat={45.50286} lon={-73.569299} zoom={12}>
 				{#key choices}
+					<MapMarker
+						lat={45.50289552120013}
+						lon={-73.56935620291614}
+						label={'mother ship'}
+						bind={motherShip}
+					/>
 					{#each choices as resto, index}
 						<MapMarker
 							lat={resto.lat}
 							lon={resto.lon}
 							label={resto.label}
+							markerColor={resto.markerColor}
 							bind={$markers[index]}
 							on:popup={() => getPopupInfo(resto.label, resto.details, resto.url)}
 						/>
@@ -59,6 +71,9 @@
 		</div>
 
 		<ul>
+			<li>
+				<button on:click={() => (choices = [...restos])}>All</button>
+			</li>
 			{#each uniqueCategories as category}
 				<li>
 					<button on:click={() => getChoices(category)}>{category}</button>

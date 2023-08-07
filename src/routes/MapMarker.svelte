@@ -10,11 +10,18 @@
 	export let lat;
 	export let lon;
 	export let label;
+	export let markerColor = '#212529';
 
 	const forward = (event) => dispatch('popup', event.detail);
 
 	const popup = new mapbox.Popup({ offset: 25 }).setText(label);
 	popup.on('open', forward);
-	const marker = new mapbox.Marker().setLngLat([lon, lat]).setPopup(popup).addTo(map);
+	const marker = new mapbox.Marker({
+		anchor: 'bottom',
+		color: markerColor
+	})
+		.setLngLat([lon, lat])
+		.setPopup(popup)
+		.addTo(map);
 	$markers.push(marker);
 </script>

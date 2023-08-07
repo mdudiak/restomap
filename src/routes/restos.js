@@ -5,7 +5,8 @@ export const restaurants = [
 		lon: -73.57444770277019,
 		details: 'Classic Parisian Brasserie',
 		url: 'https://restaurantlexpress.com/en/',
-		category: 'dinner'
+		category: 'dinner',
+		markerColor: '#9b5de5'
 	},
 	{
 		label: 'Restaurant Hélicoptère',
@@ -13,7 +14,8 @@ export const restaurants = [
 		lon: -73.540187,
 		details: 'Hyper local Quebécois cuisine',
 		url: 'https://helicopteremtl.com/',
-		category: 'dinner'
+		category: 'dinner',
+		markerColor: '#9b5de5'
 	},
 	{
 		label: 'La Buvette Chez Simone',
@@ -21,7 +23,8 @@ export const restaurants = [
 		lon: -73.5934435892758,
 		details: 'Cozy wine bar with snacks',
 		url: 'http://www.buvettechezsimone.com/',
-		category: 'drinks'
+		category: 'drinks',
+		markerColor: '#00bbf9'
 	},
 	{
 		label: 'Bar à Flot',
@@ -29,7 +32,8 @@ export const restaurants = [
 		lon: -73.59332274509981,
 		details: 'Hip wine bar with snacks',
 		url: 'https://www.instagram.com/baraflot/',
-		category: 'drinks'
+		category: 'drinks',
+		markerColor: '#00bbf9'
 	},
 	{
 		label: 'Tuck Shop',
@@ -37,7 +41,8 @@ export const restaurants = [
 		lon: -73.58837387393714,
 		details: 'Small restaurant with great service and cocktails.',
 		url: 'https://tuckshop.ca/',
-		category: 'dinner'
+		category: 'dinner',
+		markerColor: '#9b5de5'
 	},
 	{
 		label: 'Denise',
@@ -45,7 +50,8 @@ export const restaurants = [
 		lon: -73.61811503160494,
 		details: 'Small restaurant with great service and cocktails.',
 		url: 'http://cafedenise.ca/',
-		category: 'dinner'
+		category: 'dinner',
+		markerColor: '#9b5de5'
 	},
 	{
 		label: 'Damas',
@@ -53,7 +59,8 @@ export const restaurants = [
 		lon: -73.61324097393496,
 		details: 'Upscale Syrian restaurant - needs a reservation but worth it. $$$$$',
 		url: 'http://www.damas.ca/',
-		category: 'dinner'
+		category: 'dinner',
+		markerColor: '#9b5de5'
 	},
 	{
 		label: 'Joe Beef',
@@ -61,7 +68,8 @@ export const restaurants = [
 		lon: -73.57527780277185,
 		details: 'Famous for excess, book if you looove foie gras. $$$$$',
 		url: 'http://joebeef.com/',
-		category: 'dinner'
+		category: 'dinner',
+		markerColor: '#9b5de5'
 	},
 	{
 		label: `Beauty's Restaurant`,
@@ -69,7 +77,8 @@ export const restaurants = [
 		lon: -73.58749751773573,
 		details: 'Old school Montréal brunch spot, prepare to line up!',
 		url: 'http://beautys.ca',
-		category: 'brunch'
+		category: 'brunch',
+		markerColor: '#fee440'
 	},
 	{
 		label: `Arthur's Nosh Bar`,
@@ -77,7 +86,8 @@ export const restaurants = [
 		lon: -73.58828684510189,
 		details: 'Delicatessen meets waffles, might also have a lineup but is incredible.',
 		url: 'http://arthursmtl.com/',
-		category: 'brunch'
+		category: 'brunch',
+		markerColor: '#fee440'
 	},
 	{
 		label: 'St-Viateur Bagel',
@@ -85,7 +95,8 @@ export const restaurants = [
 		lon: -73.60193664509964,
 		details: 'Famous Montréal Bagels',
 		url: 'http://www.stviateurbagel.com/',
-		category: 'bagel'
+		category: 'bagel',
+		markerColor: '#f15bb5'
 	},
 	{
 		label: 'Crew Collective Cafe',
@@ -94,7 +105,8 @@ export const restaurants = [
 		details:
 			'Situated in a former bank headquarters in Old Montréal, this is the most spectacular setting for a latte in town.',
 		url: 'https://crewcollectivecafe.com/',
-		category: 'coffee'
+		category: 'coffee',
+		markerColor: '#00f5d4'
 	},
 	{
 		label: 'Café Névé',
@@ -102,7 +114,8 @@ export const restaurants = [
 		lon: -73.58142263133456,
 		details: 'Good neighbourhood coffee shop in the Plateau neighborhood',
 		url: 'http://cafeneve.com/',
-		category: 'coffee'
+		category: 'coffee',
+		markerColor: '#00f5d4'
 	},
 	{
 		label: 'Pikolo Espresso Bar',
@@ -110,7 +123,8 @@ export const restaurants = [
 		lon: -73.56670698742977,
 		details: 'McGill area coffee shop with great pastries',
 		url: 'http://pikoloespresso.com/',
-		category: 'coffee'
+		category: 'coffee',
+		markerColor: '#00f5d4'
 	},
 	{
 		label: 'Café Myriade',
@@ -118,7 +132,8 @@ export const restaurants = [
 		lon: -73.57789820277122,
 		details: 'Downtown coffee shop, consistent and good.',
 		url: 'https://cafemyriade.com/',
-		category: 'coffee'
+		category: 'coffee',
+		markerColor: '#00f5d4'
 	},
 	{
 		label: 'Café Parvis',
@@ -126,7 +141,8 @@ export const restaurants = [
 		lon: -73.56924451965203,
 		details: 'Beautiful downtown bar, good snacks too!',
 		url: 'http://cafeparvis.com/',
-		category: 'drinks'
+		category: 'drinks',
+		markerColor: '#00bbf9'
 	},
 	{
 		label: 'Les Foufounes Électriques',
@@ -134,7 +150,8 @@ export const restaurants = [
 		lon: -73.56321083123278,
 		details: 'Legendary punk bar, go nuts!',
 		url: 'http://foufouneselectriques.com/',
-		category: 'drinks'
+		category: 'drinks',
+		markerColor: '#00bbf9'
 	},
 	{
 		label: 'Bar Le Mal Nécessaire',
@@ -142,7 +159,8 @@ export const restaurants = [
 		lon: -73.56123841811144,
 		details: 'Tiki bar in Chinatown - usually with a decent DJ.',
 		url: 'http://www.lemalnecessaire.com/',
-		category: 'drinks'
+		category: 'drinks',
+		markerColor: '#00bbf9'
 	},
 	{
 		label: 'Atwater Cocktail Club',
@@ -150,6 +168,7 @@ export const restaurants = [
 		lon: -73.5783787112301,
 		details: 'Lavish speakeasy with interesting cocktails',
 		url: 'http://atwatercocktailclub.com/',
-		category: 'drinks'
+		category: 'drinks',
+		markerColor: '#00bbf9'
 	}
 ];

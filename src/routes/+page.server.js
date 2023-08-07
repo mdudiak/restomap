@@ -8,7 +8,8 @@ export const load = async () => {
 			lon: resto.lon,
 			details: resto.details,
 			url: resto.url,
-			category: resto.category
+			category: resto.category,
+			markerColor: resto.markerColor
 		}))
 	};
 };
