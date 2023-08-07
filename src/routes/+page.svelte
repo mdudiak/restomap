@@ -10,35 +10,8 @@
 	const { restos } = data;
 
 	const categories = restos.map((el) => el.category);
-	const uniqueAmounts = categories.reduce(function (obj, cat) {
-		if (!obj[cat]) {
-			obj[cat] = 1;
-		} else {
-			obj[cat]++;
-		}
-		return obj;
-	}, {});
 
-	const uniqueCategories = Object.keys(uniqueAmounts);
-	console.log(uniqueCategories);
-
-	// for (i=0; i<categories.length; i++) {
-	// 	let inc = 0;
-	// if (category[i] !== uniqueCategories[inc]) {
-	// 	uniqueCategories.push(category[i]);
-	// 	inc++
-	// }
-	// if (category[i] !== uniqueCategories[inc + 1]) {
-	// 	uniqueCategories.push(category[i+1]);
-	// 	inc++
-	// }
-	// if (category[i] !== uniqueCategories[inc + 2]) {
-	// 	uniqueCategories.push(category[i+2]);
-	// 	inc++
-	// }
-	// }
-
-	console.log(categories);
+	const uniqueCategories = [...new Set(categories)];
 
 	let choices = [];
 
@@ -84,27 +57,13 @@
 				{/key}
 			</Map>
 		</div>
-		<!-- {#if $markers[index].popup.isOpen()}
-						<Card label={resto.label} details={resto.details} url={resto.url}/>
-					{/if} -->
+
 		<ul>
 			{#each uniqueCategories as category}
 				<li>
 					<button on:click={() => getChoices(category)}>{category}</button>
 				</li>
 			{/each}
-			<!-- <li>
-				<button on:click={() => getChoices('coffee')}>Coffee</button>
-			</li>
-			<li>
-				<button on:click={() => getChoices('brunch')}>Brunch</button>
-			</li>
-			<li>
-				<button on:click={() => getChoices('dinner')}>Dinner</button>
-			</li>
-			<li>
-				<button on:click={() => getChoices('drinks')}>Drinks</button>
-			</li> -->
 		</ul>
 	</div>
 </div>
@@ -169,5 +128,9 @@
 		border-radius: 5px;
 		box-shadow: none;
 		border: 2px solid rgba(0, 0, 0, 0.5);
+		transition: all 0.25s;
+	}
+	button:hover {
+		border: 4px solid rgba(0, 0, 0, 0.5);
 	}
 </style>
