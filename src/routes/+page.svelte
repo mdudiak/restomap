@@ -41,8 +41,8 @@
 
 	$: popupInfo;
 
-	const getPopupInfo = (label, details, url) => {
-		popupInfo = [label, details, url];
+	const getPopupInfo = (label, details, url, address) => {
+		popupInfo = [label, details, url, address];
 	};
 
 	const getUserPref = () => {
@@ -62,6 +62,7 @@
 					label={popupInfo[0]}
 					details={popupInfo[1]}
 					url={popupInfo[2]}
+					address={popupInfo[3]}
 					on:click={() => {
 						randoResto();
 					}}
@@ -84,7 +85,7 @@
 							label={resto.label}
 							markerColor={resto.markerColor}
 							bind={$markers[index]}
-							on:popup={() => getPopupInfo(resto.label, resto.details, resto.url)}
+							on:popup={() => getPopupInfo(resto.label, resto.details, resto.url, resto.address)}
 						/>
 					{/each}
 				{/key}

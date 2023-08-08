@@ -9,7 +9,8 @@ export const load = async () => {
 			details: resto.details,
 			url: resto.url,
 			category: resto.category,
-			markerColor: resto.markerColor
+			markerColor: resto.markerColor,
+			address: resto.address
 		}))
 	};
 };
