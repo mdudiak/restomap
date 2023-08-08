@@ -10,7 +10,7 @@
 	export let lat;
 	export let lon;
 	export let label;
-	export let markerColor = '#212529';
+	export let markerColor = '#f15bb5';
 
 	const forward = (event) => dispatch('popup', event.detail);
 

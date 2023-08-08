@@ -31,7 +31,11 @@
 		return Math.floor(Math.random() * max);
 	}
 
-	const randoResto = () => restos[Object.keys(restos)[`${getRandomInt(restos.length)}`]];
+	const randoResto = () => {
+		let random = restos[Object.keys(restos)[`${getRandomInt(restos.length)}`]];
+		choices.push(random);
+		choices = choices;
+	};
 
 	let popupInfo = [];
 
@@ -58,7 +62,9 @@
 					label={popupInfo[0]}
 					details={popupInfo[1]}
 					url={popupInfo[2]}
-					random={randoResto().url}
+					on:click={() => {
+						randoResto();
+					}}
 				/>
 			{/key}
 		</div>
