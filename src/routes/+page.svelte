@@ -1,5 +1,4 @@
 <script>
-	import { onMount } from 'svelte';
 	import '../app.css';
 	import Map from './Map.svelte';
 	import MapMarker from './MapMarker.svelte';
@@ -9,9 +8,9 @@
 	export let data;
 
 	let dark = false;
+	let motherShip;
 
 	const { restos } = data;
-	let motherShip;
 
 	const categories = restos.map((el) => el.category);
 
@@ -28,9 +27,11 @@
 		$markers.forEach((el) => el.remove());
 	};
 
-	console.log(restos);
+	function getRandomInt(max) {
+		return Math.floor(Math.random() * max);
+	}
 
-	$: console.log('choices', choices);
+	const randoResto = () => restos[Object.keys(restos)[`${getRandomInt(restos.length)}`]];
 
 	let popupInfo = [];
 
@@ -53,7 +54,12 @@
 	<div class="container">
 		<div class="card-wrapper">
 			{#key popupInfo}
-				<Card label={popupInfo[0]} details={popupInfo[1]} url={popupInfo[2]} />
+				<Card
+					label={popupInfo[0]}
+					details={popupInfo[1]}
+					url={popupInfo[2]}
+					random={randoResto().url}
+				/>
 			{/key}
 		</div>
 		<div class="map-wrapper">
@@ -135,7 +141,8 @@
 		grid-row: 4 / -1;
 		grid-column: 1 / -1;
 		border-radius: 5px;
-		box-shadow: 0px 0px 4px var(--color-shadow);
+		border: 1px solid var(--color-purp);
+		box-shadow: 2px 2px 4px var(--color-shadow);
 		display: flex;
 		flex-direction: row;
 		align-items: center;
@@ -152,15 +159,15 @@
 		width: 100%;
 		background: none;
 		border-radius: 5px;
-		border: none;
 		box-shadow: 2px 2px 4px var(--color-shadow);
 		transition: all 0.25s;
 		color: var(--color-primary);
+		border: 1px solid var(--color-purp);
 	}
 	button:hover {
 		box-shadow: 4px 4px 8px var(--color-shadow);
 		color: var(--color-secondary);
-		background-color: var(--color-primary);
+		background-color: var(--color-purp);
 	}
 
 	@media (prefers-color-scheme: dark) {
