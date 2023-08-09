@@ -1,5 +1,5 @@
 <script>
-	import { fly } from 'svelte/transition';
+	import { fly, fade } from 'svelte/transition';
 	import { createEventDispatcher } from 'svelte';
 
 	let dispatch = createEventDispatcher();
@@ -12,28 +12,29 @@
 	const forward = (event) => dispatch('click', event.detail);
 </script>
 
-<div
-	class="card"
-	in:fly={{ x: 100, duration: 300, delay: 500 }}
-	out:fly={{ x: -100, duration: 300 }}
->
-	<h1>{label || 'Where to go?'}</h1>
-	<p>{details || 'Use the buttons below for curated options'}</p>
-	<p>{address || ''}</p>
-	<a href={url}>{url || ''}</a>
-
-	<!-- <a href={url || random}>{url || `Pourquoi pas?`}</a> -->
+<!-- in:fly={{ x: 100, duration: 300 }}
+	out:fly={{ x: -100, duration: 300, delay: 800 }} -->
+<div class="card">
 	{#if !url}
+		<h1>Where to go?</h1>
+		<p>Use the buttons below for curated options</p>
 		<p>- or -</p>
 		<p><i>IDK, It's all French to me...</i></p>
 		<p>&#8595</p>
 		<button on:click={forward}>Pourquoi pas?</button>
+	{:else}
+		<h1>{label}</h1>
+		<p>{details}</p>
+		<p>{address}</p>
+		<a href={url}>{url}</a>
 	{/if}
+
+	<!-- <a href={url || random}>{url || `Pourquoi pas?`}</a> -->
 </div>
 
 <style>
 	h1 {
-		font-size: var(--size-700);
+		font-size: var(--size-800);
 	}
 
 	p {
@@ -60,7 +61,7 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		justify-content: center;
+		justify-content: space-evenly;
 		text-align: center;
 		padding: 4rem;
 		border-radius: 5px;
