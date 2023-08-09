@@ -27,6 +27,7 @@
 			center: [lon, lat],
 			zoom
 		});
+		// map.doubleClickZoomHandler.enable();
 	}
 
 	onMount(() => load());
