@@ -68,7 +68,7 @@
 			{/key}
 		</div>
 		<div class="map-wrapper">
-			<Map {dark} lat={45.50286} lon={-73.569299} zoom={12}>
+			<Map {dark} lat={45.52} lon={-73.569299} zoom={11}>
 				{#key choices}
 					<MapMarker
 						lat={45.50289552120013}

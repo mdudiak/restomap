@@ -64,3 +64,17 @@ h4 {
 a {
 	text-decoration: none;
 }
+  
+.mapboxgl-marker {
+	cursor: pointer;;
+}
+
+.mapboxgl-popup {
+	max-width: 200px;
+  }
+  
+  .mapboxgl-popup-content {
+	text-align: center;
+	font-family: monospace;
+  }
+  
