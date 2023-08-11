@@ -1,10 +1,7 @@
 import mapbox from 'mapbox-gl';
-// import MAPBOX_ACCESS_TOKEN from '$app/environment';
+import { PUBLIC_MAPBOX_ACCESS_TOKEN } from '$env/static/public';
 
-// mapbox.accessToken = MAPBOX_ACCESS_TOKEN;
-
-mapbox.accessToken =
-	'pk.eyJ1IjoibWR1ZGlhayIsImEiOiJjbGJzZGl6djMwMXZzM29wZmQ5NGIzemluIn0.WLiCcoHOFGD2SimgRxd48w';
+mapbox.accessToken = PUBLIC_MAPBOX_ACCESS_TOKEN;
 
 const key = Symbol();
 

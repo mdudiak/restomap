@@ -9,11 +9,9 @@
 
 	let dark = false;
 	let motherShip;
-
 	const { restos } = data;
 
 	const categories = restos.map((el) => el.category);
-
 	const uniqueCategories = [...new Set(categories)];
 
 	let choices = [];
@@ -110,6 +108,7 @@
 		width: 100vw;
 		min-height: 100vh;
 		position: relative;
+		background-image: var(--gradient-9);
 	}
 
 	.container {
@@ -179,7 +178,8 @@
 
 	@media (prefers-color-scheme: dark) {
 		.page {
-			background-color: var(--color-primary);
+			/* background-color: var(--color-primary); */
+			background-image: var(--gradient-8);
 		}
 
 		ul {

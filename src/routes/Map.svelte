@@ -1,15 +1,14 @@
 <script>
 	import { onMount, onDestroy, setContext } from 'svelte';
 	import { mapbox, key } from './mapbox.js';
-
 	import 'mapbox-gl/dist/mapbox-gl.css';
-
-	setContext(key, { getMap: () => map });
 
 	export let lat;
 	export let lon;
 	export let zoom;
 	export let dark = false;
+
+	setContext(key, { getMap: () => map });
 
 	let container;
 	let map;
@@ -27,7 +26,6 @@
 			center: [lon, lat],
 			zoom
 		});
-		// map.doubleClickZoomHandler.enable();
 	}
 
 	onMount(() => load());
