@@ -44,8 +44,6 @@
 		<p>{address}</p>
 		<a href={url}>{url}</a>
 	{/if}
-
-	<!-- <a href={url || random}>{url || `Pourquoi pas?`}</a> -->
 </div>
 
 <style>
@@ -68,18 +66,12 @@
 		color: magenta;
 	}
 
-	/* .margin_bottom_small {
-		margin-block-end: 1rem;
-	} */
-
 	svg {
 		grid-row: 1/-1;
 		grid-column: 1/-1;
 	}
 
 	.card {
-		/* width: clamp(200px, 30vw, 500px);
-		aspect-ratio: 4/3; */
 		position: relative;
 		width: 100%;
 		height: 100%;
