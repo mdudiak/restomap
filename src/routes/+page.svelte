@@ -75,6 +75,13 @@
 						lon={-73.56935620291614}
 						label={'mother ship'}
 						bind={motherShip}
+						on:click={() =>
+							getPopupInfo(
+								'Renaissance Montreal Downtown Hotel',
+								'',
+								'http://bitly.ws/RPx9',
+								'1250 Blvd Robert-Bourassa, Montréal, QC H3B 3B8'
+							)}
 					/>
 					{#each choices as resto, index}
 						<MapMarker
@@ -108,7 +115,7 @@
 		width: 100vw;
 		min-height: 100vh;
 		position: relative;
-		background-image: var(--gradient-9);
+		/* background-image: var(--gradient-9); */
 	}
 
 	.container {
@@ -178,8 +185,8 @@
 
 	@media (prefers-color-scheme: dark) {
 		.page {
-			/* background-color: var(--color-primary); */
-			background-image: var(--gradient-8);
+			background-color: var(--color-primary);
+			/* background-image: var(--gradient-8); */
 		}
 
 		ul {
