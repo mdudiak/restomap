@@ -106,7 +106,7 @@ export const restaurants = [
 		details: 'Famous Montréal Bagels',
 		address: 'Rue Saint-Viateur Ouest',
 		url: 'http://www.stviateurbagel.com/',
-		category: 'brunch',
+		category: 'bagel',
 		markerColor: '#fee440'
 	},
 	{

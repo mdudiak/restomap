@@ -27,6 +27,7 @@
 	>
 		<g>
 			<path
+				fill="currentColor"
 				d="M258.53,0L0,149.27V447.8l258.53,149.27L517.07,447.8V149.27L258.53,0z M105.33,467.63l-69.77-40.74V170.26l185.86-107.6   v80.26l-116.09,67.98V467.63z M221.42,331.45v202.6l-70.33-39.63V232.66l70.33-41.3v75.79h74.79V63.66l68.65,39.07v263.88   l-69.21,40.19v-75.35H221.42z M481.51,428.56L295.09,534.05v-80.37l116.09-65.86V130.08l70.33,39.63V428.56z"
 			/>
 		</g>
@@ -66,11 +67,6 @@
 		color: magenta;
 	}
 
-	svg {
-		grid-row: 1/-1;
-		grid-column: 1/-1;
-	}
-
 	.card {
 		position: relative;
 		width: 100%;
@@ -87,12 +83,15 @@
 	}
 
 	svg {
+		grid-row: 1/-1;
+		grid-column: 1/-1;
 		position: absolute;
 		top: 50%;
 		right: 40%;
 		transform: translate(80%, -50%);
 		height: 95%;
 		z-index: 0;
+		filter: opacity(35%);
 	}
 
 	button {
