@@ -90,7 +90,9 @@
 							label={resto.label}
 							markerColor={resto.markerColor}
 							bind={$markers[index]}
-							on:click={() => getPopupInfo(resto.label, resto.details, resto.url, resto.address)}
+							on:click={() => {
+								getPopupInfo(resto.label, resto.details, resto.url, resto.address);
+							}}
 						/>
 					{/each}
 				{/key}

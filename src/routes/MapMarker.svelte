@@ -12,7 +12,10 @@
 	export let label;
 	export let markerColor = '#f15bb5';
 
-	const forward = (event) => dispatch('click', event);
+	const forward = (event) => {
+		popup.addTo(map);
+		dispatch('click', event);
+	};
 
 	const markerHeight = 50;
 	const markerRadius = 10;

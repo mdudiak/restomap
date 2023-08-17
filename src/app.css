@@ -26,7 +26,7 @@ html {
 	--color-shadow: rgba(0, 0, 0, 0.25);
 	--color-glow: rgba(232, 208, 252, 1);
 	--color-purp: rgba(136, 118, 155, 0.75);
-	--color-orange: rgb(218, 178, 59);
+	--color-orange: #dab23b;
 
 	--size-100: clamp(.5rem, .25rem + .1vw, .6rem)
 	--size-300: clamp(0.7rem, 0.66rem + 0.2vw, 0.8rem);
@@ -65,15 +65,24 @@ a {
 	text-decoration: none;
 }
   
+  
 .mapboxgl-marker {
+	/* background-image: url('$lib/icons/Icon_Black.png');
+	background-size: cover;
+	width: 40px;
+	height: 40px; */
 	cursor: pointer;
+}
+
+.mapboxgl-marker:hover {
+	filter: hue-rotate(100deg);
 }
 
 .mapboxgl-popup {
 	max-width: 200px;
   }
   
-  .mapboxgl-popup-content {
+.mapboxgl-popup-content {
 	text-align: center;
 	font-family: monospace;
   }
