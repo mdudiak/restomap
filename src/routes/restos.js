@@ -7,7 +7,7 @@ export const restaurants = [
 		address: '3927 Saint Denis St',
 		url: 'https://restaurantlexpress.com/en/',
 		category: 'dinner',
-		markerColor: '#9b5de5'
+		markerColor: 'rgb(155, 93, 229, .8)'
 	},
 	{
 		label: 'Restaurant Hélicoptère',
@@ -17,7 +17,7 @@ export const restaurants = [
 		address: '4255 Ontario St E',
 		url: 'https://helicopteremtl.com/',
 		category: 'dinner',
-		markerColor: '#9b5de5'
+		markerColor: 'rgb(155, 93, 229, .8)'
 	},
 	{
 		label: 'La Buvette Chez Simone',
@@ -27,7 +27,7 @@ export const restaurants = [
 		address: '4869 Park Ave',
 		url: 'http://www.buvettechezsimone.com/',
 		category: 'drinks',
-		markerColor: '#00bbf9'
+		markerColor: 'rgb(0, 187, 249,  .7)'
 	},
 	{
 		label: 'Bar à Flot',
@@ -37,7 +37,7 @@ export const restaurants = [
 		address: '4857 Park Ave',
 		url: 'https://www.instagram.com/baraflot/',
 		category: 'drinks',
-		markerColor: '#00bbf9'
+		markerColor: 'rgb(0, 187, 249,  .7)'
 	},
 	{
 		label: 'Tuck Shop',
@@ -47,7 +47,7 @@ export const restaurants = [
 		address: '4662 Notre-Dame St W',
 		url: 'https://tuckshop.ca/',
 		category: 'dinner',
-		markerColor: '#9b5de5'
+		markerColor: 'rgb(155, 93, 229, .8)'
 	},
 	{
 		label: 'Denise',
@@ -57,7 +57,7 @@ export const restaurants = [
 		address: '386 Beaumont Ave',
 		url: 'http://cafedenise.ca/',
 		category: 'dinner',
-		markerColor: '#9b5de5'
+		markerColor: 'rgb(155, 93, 229, .8)'
 	},
 	{
 		label: 'Damas',
@@ -67,7 +67,7 @@ export const restaurants = [
 		address: '1201 Ave Van Horne',
 		url: 'http://www.damas.ca/',
 		category: 'dinner',
-		markerColor: '#9b5de5'
+		markerColor: 'rgb(155, 93, 229, .8)'
 	},
 	{
 		label: 'Joe Beef',
@@ -77,7 +77,7 @@ export const restaurants = [
 		address: '2491 Notre-Dame St W',
 		url: 'http://joebeef.com/',
 		category: 'dinner',
-		markerColor: '#9b5de5'
+		markerColor: 'rgb(155, 93, 229, .8)'
 	},
 	{
 		label: `Beauty's Restaurant`,
@@ -87,7 +87,7 @@ export const restaurants = [
 		address: '93 Mont-Royal Ave W',
 		url: 'http://beautys.ca',
 		category: 'brunch',
-		markerColor: '#fee440'
+		markerColor: 'rgb(254, 228, 64, .7)'
 	},
 	{
 		label: `Arthur's Nosh Bar`,
@@ -97,7 +97,7 @@ export const restaurants = [
 		address: '4621 Notre-Dame St W',
 		url: 'http://arthursmtl.com/',
 		category: 'brunch',
-		markerColor: '#fee440'
+		markerColor: 'rgb(254, 228, 64, .7)'
 	},
 	{
 		label: 'St-Viateur Bagel',
@@ -107,7 +107,7 @@ export const restaurants = [
 		address: 'Rue Saint-Viateur Ouest',
 		url: 'http://www.stviateurbagel.com/',
 		category: 'bagel',
-		markerColor: '#fee440'
+		markerColor: 'rgb(254, 228, 64, .7)'
 	},
 	{
 		label: 'Crew Collective Cafe',
@@ -118,7 +118,7 @@ export const restaurants = [
 		address: '360 Rue Saint-Jacques',
 		url: 'https://crewcollectivecafe.com/',
 		category: 'coffee',
-		markerColor: '#00f5d4'
+		markerColor: 'rgb(0, 245, 212, .7)'
 	},
 	{
 		label: 'Café Névé',
@@ -128,7 +128,7 @@ export const restaurants = [
 		address: '151 Rue Rachel E',
 		url: 'http://cafeneve.com/',
 		category: 'coffee',
-		markerColor: '#00f5d4'
+		markerColor: 'rgb(0, 245, 212, .7)'
 	},
 	{
 		label: 'Pikolo Espresso Bar',
@@ -138,7 +138,7 @@ export const restaurants = [
 		address: '1635 Rue Clark',
 		url: 'http://pikoloespresso.com/',
 		category: 'coffee',
-		markerColor: '#00f5d4'
+		markerColor: 'rgb(0, 245, 212, .7)'
 	},
 	{
 		label: 'Café Myriade',
@@ -148,7 +148,7 @@ export const restaurants = [
 		address: '1432 Mackay St',
 		url: 'https://cafemyriade.com/',
 		category: 'coffee',
-		markerColor: '#00f5d4'
+		markerColor: 'rgb(0, 245, 212, .7)'
 	},
 	{
 		label: 'Café Parvis',
@@ -158,7 +158,7 @@ export const restaurants = [
 		address: '433 Mayor St',
 		url: 'http://cafeparvis.com/',
 		category: 'drinks',
-		markerColor: '#00bbf9'
+		markerColor: 'rgb(0, 187, 249,  .7)'
 	},
 	{
 		label: 'Les Foufounes Électriques',
@@ -168,7 +168,7 @@ export const restaurants = [
 		address: '87 St Catherine St E',
 		url: 'http://foufouneselectriques.com/',
 		category: 'drinks',
-		markerColor: '#00bbf9'
+		markerColor: 'rgb(0, 187, 249,  .7)'
 	},
 	{
 		label: 'Bar Le Mal Nécessaire',
@@ -178,7 +178,7 @@ export const restaurants = [
 		address: '1106B St Laurent Blvd',
 		url: 'http://www.lemalnecessaire.com/',
 		category: 'drinks',
-		markerColor: '#00bbf9'
+		markerColor: 'rgb(0, 187, 249,  .7)'
 	},
 	{
 		label: 'Atwater Cocktail Club',
@@ -188,7 +188,7 @@ export const restaurants = [
 		address: '512 Atwater Ave',
 		url: 'http://atwatercocktailclub.com/',
 		category: 'drinks',
-		markerColor: '#00bbf9'
+		markerColor: 'rgb(0, 187, 249,  .7)'
 	},
 	{
 		label: `Larry's`,
@@ -198,6 +198,6 @@ export const restaurants = [
 		address: '5201 St Laurent Blvd',
 		url: 'https://lawrencemtl.com/larrys',
 		category: 'drinks',
-		markerColor: '#00bbf9'
+		markerColor: 'rgb(0, 187, 249,  .7)'
 	}
 ];

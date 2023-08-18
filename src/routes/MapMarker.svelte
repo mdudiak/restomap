@@ -11,15 +11,15 @@
 	export let lat;
 	export let lon;
 	export let label;
-	export let markerColor = '#f15bb5';
+	export let markerColor = 'rgba(241, 91, 181, .8)';
 
-	let markerEl;
+	// let el;
 
 	const forward = (event) => {
 		dispatch('click', event);
 	};
 
-	const markerHeight = 50;
+	const markerHeight = 34;
 	const markerRadius = 10;
 	const linearOffset = 25;
 	const popupOffsets = {
@@ -45,10 +45,10 @@
 	el.style.width = '29px';
 	el.style.height = '34px';
 	el.style.backgroundSize = 'cover';
+	el.style.filter = `invert(80%)  drop-shadow(1px 1px 2px ${markerColor}) drop-shadow(-1px -1px 2px ${markerColor})`;
 
 	const marker = new mapbox.Marker({
 		anchor: 'bottom',
-		// color: markerColor,
 		rotation: 15,
 		element: el
 	})
@@ -65,15 +65,15 @@
 	$markers.push(marker);
 </script>
 
-<!-- <div
-	bind:this={markerEl}
-	on:click={forward}
-	on:mouseenter={() => popup.addTo(map)}
-	on:mouseleave={() => popup.remove()}
-/>
+<!-- <div bind:this={el} />
 
 <style>
 	div {
-		background-image: ;
+		background-image: url(logo);
+		width: 29px;
+		height: 34px;
+		background-size: cover;
+		filter: invert(80%) drop-shadow(1px 1px 2px markerColor) drop-shadow(-1px -1px 2px markerColor);
+		cursor: pointer;
 	}
 </style> -->

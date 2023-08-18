@@ -73,7 +73,7 @@ a {
 	background-size: cover;
 	width: 40px;
 	height: 40px; */
-	filter: invert(80%)  drop-shadow(1px 1px 2px var(--color-logo)) drop-shadow(-1px -1px 2px var(--color-logo));
+	/* filter: invert(80%)  drop-shadow(1px 1px 2px var(--color-logo)) drop-shadow(-1px -1px 2px var(--color-logo)); */
 	cursor: pointer;
 }
 
