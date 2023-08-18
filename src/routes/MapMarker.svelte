@@ -2,6 +2,7 @@
 	import { getContext, createEventDispatcher } from 'svelte';
 	import { mapbox, key } from './mapbox';
 	import { markers } from '../stores';
+	import logo from '$lib/icons/Icon_Black.png';
 
 	const { getMap } = getContext(key);
 	const map = getMap();
@@ -12,8 +13,9 @@
 	export let label;
 	export let markerColor = '#f15bb5';
 
+	let markerEl;
+
 	const forward = (event) => {
-		popup.addTo(map);
 		dispatch('click', event);
 	};
 
@@ -37,10 +39,18 @@
 		closeButton: false
 	}).setText(label);
 
+	const el = document.createElement('div');
+	el.className = 'marker';
+	el.style.backgroundImage = 'url(src/lib/icons/Icon_Black.png)';
+	el.style.width = '29px';
+	el.style.height = '34px';
+	el.style.backgroundSize = 'cover';
+
 	const marker = new mapbox.Marker({
 		anchor: 'bottom',
-		color: markerColor,
-		rotation: 15
+		// color: markerColor,
+		rotation: 15,
+		element: el
 	})
 		.setLngLat([lon, lat])
 		.setPopup(popup)
@@ -54,3 +64,16 @@
 
 	$markers.push(marker);
 </script>
+
+<!-- <div
+	bind:this={markerEl}
+	on:click={forward}
+	on:mouseenter={() => popup.addTo(map)}
+	on:mouseleave={() => popup.remove()}
+/>
+
+<style>
+	div {
+		background-image: ;
+	}
+</style> -->

@@ -26,6 +26,8 @@ html {
 	--color-shadow: rgba(0, 0, 0, 0.25);
 	--color-glow: rgba(232, 208, 252, 1);
 	--color-purp: rgba(136, 118, 155, 0.75);
+	--color-logo2: rgba(11, 251, 71, .8);
+	--color-logo: rgba(151, 11, 251, 1);
 	--color-orange: #dab23b;
 
 	--size-100: clamp(.5rem, .25rem + .1vw, .6rem)
@@ -71,11 +73,12 @@ a {
 	background-size: cover;
 	width: 40px;
 	height: 40px; */
+	filter: invert(80%)  drop-shadow(1px 1px 2px var(--color-logo)) drop-shadow(-1px -1px 2px var(--color-logo));
 	cursor: pointer;
 }
 
 .mapboxgl-marker:hover {
-	filter: hue-rotate(100deg);
+	filter: invert(0%);
 }
 
 .mapboxgl-popup {
