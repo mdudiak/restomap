@@ -2,7 +2,6 @@
 	import { getContext, createEventDispatcher } from 'svelte';
 	import { mapbox, key } from './mapbox';
 	import { markers } from '../stores';
-	import logo from '$lib/icons/Icon_Black.png';
 
 	const { getMap } = getContext(key);
 	const map = getMap();
@@ -13,10 +12,9 @@
 	export let label;
 	export let markerColor = 'rgba(241, 91, 181, .8)';
 
-	// let el;
-
 	const forward = (event) => {
 		dispatch('click', event);
+		event.target.style.filter = `invert(80%) drop-shadow(1px 1px 2px ${markerColor}) drop-shadow(-1px -1px 2px ${markerColor})`;
 	};
 
 	const markerHeight = 34;
@@ -45,7 +43,9 @@
 	el.style.width = '29px';
 	el.style.height = '34px';
 	el.style.backgroundSize = 'cover';
-	el.style.filter = `invert(80%)  drop-shadow(1px 1px 2px ${markerColor}) drop-shadow(-1px -1px 2px ${markerColor})`;
+	// el.style.filter =
+	// 	'invert(80%)  drop-shadow(1px 1px 2px var(--marker-color)) drop-shadow(-1px -1px 2px var(--marker-color))';
+	el.style.filter = `invert(0%)  drop-shadow(1px 1px 2px ${markerColor}) drop-shadow(-1px -1px 2px ${markerColor})`;
 
 	const marker = new mapbox.Marker({
 		anchor: 'bottom',
@@ -56,18 +56,14 @@
 		.setPopup(popup)
 		.addTo(map);
 
-	const element = marker.getElement();
-	element.id = 'marker';
-	element.addEventListener('mouseenter', () => popup.addTo(map));
-	element.addEventListener('mouseleave', () => popup.remove());
-	element.addEventListener('click', forward);
+	el.addEventListener('mouseenter', () => popup.addTo(map));
+	el.addEventListener('mouseleave', () => popup.remove());
+	el.addEventListener('click', forward);
 
 	$markers.push(marker);
 </script>
 
-<!-- <div bind:this={el} />
-
-<style>
+<!-- <style>
 	div {
 		background-image: url(logo);
 		width: 29px;

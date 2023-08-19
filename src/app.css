@@ -30,6 +30,8 @@ html {
 	--color-logo: rgba(151, 11, 251, 1);
 	--color-orange: #dab23b;
 
+	--marker-color: blue;
+
 	--size-100: clamp(.5rem, .25rem + .1vw, .6rem)
 	--size-300: clamp(0.7rem, 0.66rem + 0.2vw, 0.8rem);
 	--size-400: clamp(0.88rem, 0.83rem + 0.24vw, 1rem);
@@ -67,6 +69,9 @@ a {
 	text-decoration: none;
 }
   
+	.marker-wrapper:hover {
+		filter: hue-rotate(180deg);
+	}
   
 .mapboxgl-marker {
 	/* background-image: url('$lib/icons/Icon_Black.png');
