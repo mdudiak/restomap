@@ -25,6 +25,18 @@
 		$markers.forEach((el) => el.remove());
 	};
 
+	const changeMarker = (event, color) => {
+		$markers.forEach((el) => {
+			// console.log('event:', event.explicitOriginalTarget, 'element:', el._element.dataset.selected);
+			if ((el._element.dataset.selected = true && el !== event.explicitOriginalTarget)) {
+				el._element.style.filter = `invert(0%)  drop-shadow(1px 1px 2px ${color}) drop-shadow(-1px -1px 2px ${color})`;
+				el._element.dataset.selected = false;
+			} else {
+				return;
+			}
+		});
+	};
+
 	function getRandomInt(max) {
 		return Math.floor(Math.random() * max);
 	}
@@ -46,6 +58,10 @@
 	const getUserPref = () => {
 		matchMedia('(prefers-color-scheme: dark)').matches ? (dark = true) : (dark = false);
 	};
+
+	// let markerUpdate = 0;
+
+	// $: markerUpdate, console.log($markers[1]);
 
 	$: choices, removeMarkers();
 </script>
@@ -69,12 +85,14 @@
 		</div>
 		<div class="map-wrapper">
 			<Map {dark} lat={45.52} lon={-73.569299} zoom={11}>
+				<!-- {#key markerUpdate} -->
 				{#key choices}
 					<MapMarker
 						lat={45.50289552120013}
 						lon={-73.56935620291614}
 						label={'mother ship'}
 						bind={motherShip}
+						home={true}
 						on:click={() =>
 							getPopupInfo(
 								'Renaissance Montreal Downtown Hotel',
@@ -90,12 +108,14 @@
 							label={resto.label}
 							markerColor={resto.markerColor}
 							bind={$markers[index]}
-							on:click={() => {
+							on:click={(event) => {
+								changeMarker(event, resto.markerColor);
 								getPopupInfo(resto.label, resto.details, resto.url, resto.address);
 							}}
 						/>
 					{/each}
 				{/key}
+				<!-- {/key} -->
 			</Map>
 		</div>
 

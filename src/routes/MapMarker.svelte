@@ -11,10 +11,20 @@
 	export let lon;
 	export let label;
 	export let markerColor = 'rgba(241, 91, 181, .8)';
+	export let home = false;
 
+	const update = (el) => {
+		el.style.filter = `invert(80%) drop-shadow(1px 1px 2px ${markerColor}) drop-shadow(-1px -1px 2px ${markerColor})`;
+		el.dataset.selected = true;
+	};
+
+	// const forward = async (event) => {
+	// 	await update(event.target);
+	// 	dispatch('click', event);
+	// };
 	const forward = (event) => {
 		dispatch('click', event);
-		event.target.style.filter = `invert(80%) drop-shadow(1px 1px 2px ${markerColor}) drop-shadow(-1px -1px 2px ${markerColor})`;
+		update(event.target);
 	};
 
 	const markerHeight = 34;
@@ -46,6 +56,8 @@
 	// el.style.filter =
 	// 	'invert(80%)  drop-shadow(1px 1px 2px var(--marker-color)) drop-shadow(-1px -1px 2px var(--marker-color))';
 	el.style.filter = `invert(0%)  drop-shadow(1px 1px 2px ${markerColor}) drop-shadow(-1px -1px 2px ${markerColor})`;
+	el.dataset.selected = false;
+	el.dataset.home = `${home}`;
 
 	const marker = new mapbox.Marker({
 		anchor: 'bottom',
