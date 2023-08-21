@@ -1,5 +1,5 @@
 <script>
-	import { getContext, createEventDispatcher } from 'svelte';
+	import { getContext, createEventDispatcher, onDestroy } from 'svelte';
 	import { mapbox, key } from './mapbox';
 	import { markers } from '../stores';
 
@@ -13,9 +13,10 @@
 	export let markerColor = 'rgba(241, 91, 181, .8)';
 	export let home = false;
 
-	const update = (el) => {
+	const update = (el, time) => {
 		el.style.filter = `invert(80%) drop-shadow(1px 1px 2px ${markerColor}) drop-shadow(-1px -1px 2px ${markerColor})`;
 		el.dataset.selected = true;
+		el.dataset.createdAt = time;
 	};
 
 	// const forward = async (event) => {
@@ -24,7 +25,7 @@
 	// };
 	const forward = (event) => {
 		dispatch('click', event);
-		update(event.target);
+		update(event.target, event.timeStamp);
 	};
 
 	const markerHeight = 34;
@@ -73,6 +74,15 @@
 	el.addEventListener('click', forward);
 
 	$markers.push(marker);
+
+	// $: el.dataset.selected = true ? $markers.splice($markers.indexOf(el)) : '';
+
+	onDestroy(() => {
+		if (el) {
+			el.remove();
+			$markers.splice(0);
+		}
+	});
 </script>
 
 <!-- <style>

@@ -18,6 +18,7 @@
 
 	function getChoices(choice) {
 		choices = restos.filter((resto) => resto.category === choice);
+		console.log('markers:', $markers);
 		return choices;
 	}
 
@@ -26,14 +27,16 @@
 	};
 
 	const changeMarker = (event, color) => {
+		console.log('event:', event.timeStamp);
+
 		$markers.forEach((el) => {
-			// console.log('event:', event.explicitOriginalTarget, 'element:', el._element.dataset.selected);
-			if ((el._element.dataset.selected = true && el !== event.explicitOriginalTarget)) {
+			console.log('event:', event.timeStamp, 'other:', Number(el._element.dataset.createdAt));
+			if (Number(el._element.dataset.createdAt) < event.timeStamp) {
 				el._element.style.filter = `invert(0%)  drop-shadow(1px 1px 2px ${color}) drop-shadow(-1px -1px 2px ${color})`;
 				el._element.dataset.selected = false;
-			} else {
-				return;
+				el._element.dataset.createdAt = 10000000;
 			}
+			return el;
 		});
 	};
 
@@ -109,6 +112,7 @@
 							markerColor={resto.markerColor}
 							bind={$markers[index]}
 							on:click={(event) => {
+								console.log('markers:', $markers);
 								changeMarker(event, resto.markerColor);
 								getPopupInfo(resto.label, resto.details, resto.url, resto.address);
 							}}
