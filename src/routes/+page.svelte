@@ -30,11 +30,12 @@
 		console.log('event:', event.timeStamp);
 
 		$markers.forEach((el) => {
-			console.log('event:', event.timeStamp, 'other:', Number(el._element.dataset.createdAt));
+			if (el._element.dataset.home === 'true') {
+				return;
+			}
 			if (Number(el._element.dataset.createdAt) < event.timeStamp) {
 				el._element.style.filter = `invert(0%)  drop-shadow(1px 1px 2px ${color}) drop-shadow(-1px -1px 2px ${color})`;
-				el._element.dataset.selected = false;
-				el._element.dataset.createdAt = 10000000;
+				el._element.dataset.createdAt = 100000;
 			}
 			return el;
 		});
@@ -220,9 +221,13 @@
 		}
 
 		button {
-			color: var(--color-glow);
+			/* color: var(--color-glow);
+			border: 1px solid var(--color-purp); */
+			color: white;
+			filter: drop-shadow(1px 1px 2px var(--color-orange))
+				drop-shadow(-1px -1px 2px var(--color-logo));
+
 			background-color: var(--color-primary);
-			border: 1px solid var(--color-purp);
 		}
 
 		button:hover {

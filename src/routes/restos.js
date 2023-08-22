@@ -30,16 +30,6 @@ export const restaurants = [
 		markerColor: 'rgb(0, 187, 249,  .7)'
 	},
 	{
-		label: 'Bar à Flot',
-		lat: 45.51890992419012,
-		lon: -73.59332274509981,
-		details: 'Hip wine bar with snacks',
-		address: '4857 Park Ave',
-		url: 'https://www.instagram.com/baraflot/',
-		category: 'drinks',
-		markerColor: 'rgb(0, 187, 249,  .7)'
-	},
-	{
 		label: 'Tuck Shop',
 		lat: 45.473161965301045,
 		lon: -73.58837387393714,

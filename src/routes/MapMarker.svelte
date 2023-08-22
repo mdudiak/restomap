@@ -15,7 +15,6 @@
 
 	const update = (el, time) => {
 		el.style.filter = `invert(80%) drop-shadow(1px 1px 2px ${markerColor}) drop-shadow(-1px -1px 2px ${markerColor})`;
-		el.dataset.selected = true;
 		el.dataset.createdAt = time;
 	};
 
@@ -28,7 +27,7 @@
 		update(event.target, event.timeStamp);
 	};
 
-	const markerHeight = 34;
+	const markerHeight = 41;
 	const markerRadius = 10;
 	const linearOffset = 25;
 	const popupOffsets = {
@@ -51,13 +50,12 @@
 	const el = document.createElement('div');
 	el.className = 'marker';
 	el.style.backgroundImage = 'url(src/lib/icons/Icon_Black.png)';
-	el.style.width = '29px';
-	el.style.height = '34px';
+	el.style.width = '32px';
+	el.style.height = '41px';
 	el.style.backgroundSize = 'cover';
 	// el.style.filter =
 	// 	'invert(80%)  drop-shadow(1px 1px 2px var(--marker-color)) drop-shadow(-1px -1px 2px var(--marker-color))';
 	el.style.filter = `invert(0%)  drop-shadow(1px 1px 2px ${markerColor}) drop-shadow(-1px -1px 2px ${markerColor})`;
-	el.dataset.selected = false;
 	el.dataset.home = `${home}`;
 
 	const marker = new mapbox.Marker({

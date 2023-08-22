@@ -44,7 +44,8 @@
 		<h1>{label}</h1>
 		<p>{details}</p>
 		<p>{address}</p>
-		<a href={url}>&#128279 website &#127760</a>
+		<p>&#8595</p>
+		<a href={url}>- website -</a>
 	{/if}
 </div>
 
@@ -52,6 +53,7 @@
 	h1 {
 		font-size: var(--size-800);
 		z-index: 1;
+		margin-block-end: 1rem;
 	}
 
 	p {
@@ -77,7 +79,7 @@
 		align-items: center;
 		justify-content: space-evenly;
 		text-align: center;
-		padding: 4rem;
+		padding: 2rem;
 		border-radius: 5px;
 		border: 1px solid var(--color-purp);
 		box-shadow: 2px 2px 4px var(--color-shadow);
@@ -114,11 +116,23 @@
 		}
 
 		a {
-			color: var(--color-orange);
+			/* color: var(--color-orange); */
+			color: white;
+			filter: drop-shadow(1px 1px 2px var(--color-orange))
+				drop-shadow(-1px -1px 2px var(--color-logo));
 		}
 
 		button {
-			color: var(--color-orange);
+			/* color: var(--color-orange); */
+			color: white;
+			filter: drop-shadow(1px 1px 2px var(--color-orange))
+				drop-shadow(-1px -1px 2px var(--color-logo));
+		}
+
+		h1 {
+			color: white;
+			filter: drop-shadow(1px 1px 2px var(--color-orange))
+				drop-shadow(-1px -1px 2px var(--color-logo));
 		}
 	}
 </style>
