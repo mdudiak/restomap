@@ -1,7 +1,7 @@
 <script>
 	import { getContext, createEventDispatcher, onDestroy } from 'svelte';
 	import { mapbox, key } from './mapbox';
-	import { markers } from '../stores';
+	import { markers, currentColor } from '../stores';
 
 	const { getMap } = getContext(key);
 	const map = getMap();
@@ -16,12 +16,9 @@
 	const update = (el, time) => {
 		el.style.filter = `invert(80%) drop-shadow(1px 1px 2px ${markerColor}) drop-shadow(-1px -1px 2px ${markerColor})`;
 		el.dataset.createdAt = time;
+		$currentColor.splice(0, 1, markerColor);
 	};
 
-	// const forward = async (event) => {
-	// 	await update(event.target);
-	// 	dispatch('click', event);
-	// };
 	const forward = (event) => {
 		dispatch('click', event);
 		update(event.target, event.timeStamp);
@@ -53,9 +50,7 @@
 	el.style.width = '32px';
 	el.style.height = '41px';
 	el.style.backgroundSize = 'cover';
-	// el.style.filter =
-	// 	'invert(80%)  drop-shadow(1px 1px 2px var(--marker-color)) drop-shadow(-1px -1px 2px var(--marker-color))';
-	el.style.filter = `invert(0%)  drop-shadow(1px 1px 2px ${markerColor}) drop-shadow(-1px -1px 2px ${markerColor})`;
+	el.style.filter = `invert(0%) drop-shadow(1px 1px 2px ${markerColor}) drop-shadow(-1px -1px 2px ${markerColor})`;
 	el.dataset.home = `${home}`;
 
 	const marker = new mapbox.Marker({
@@ -72,8 +67,6 @@
 	el.addEventListener('click', forward);
 
 	$markers.push(marker);
-
-	// $: el.dataset.selected = true ? $markers.splice($markers.indexOf(el)) : '';
 
 	onDestroy(() => {
 		if (el) {

@@ -3,7 +3,7 @@
 	import Map from './Map.svelte';
 	import MapMarker from './MapMarker.svelte';
 	import Card from './Card.svelte';
-	import { markers } from '../stores.js';
+	import { markers, currentColor } from '../stores.js';
 
 	export let data;
 
@@ -18,7 +18,6 @@
 
 	function getChoices(choice) {
 		choices = restos.filter((resto) => resto.category === choice);
-		console.log('markers:', $markers);
 		return choices;
 	}
 
@@ -27,14 +26,9 @@
 	};
 
 	const changeMarker = (event, color) => {
-		console.log('event:', event.timeStamp);
-
 		$markers.forEach((el) => {
-			if (el._element.dataset.home === 'true') {
-				return;
-			}
 			if (Number(el._element.dataset.createdAt) < event.timeStamp) {
-				el._element.style.filter = `invert(0%)  drop-shadow(1px 1px 2px ${color}) drop-shadow(-1px -1px 2px ${color})`;
+				el._element.style.filter = `invert(10%)  drop-shadow(1px 1px 2px ${color}) drop-shadow(-1px -1px 2px ${color})`;
 				el._element.dataset.createdAt = 100000;
 			}
 			return el;
@@ -62,10 +56,6 @@
 	const getUserPref = () => {
 		matchMedia('(prefers-color-scheme: dark)').matches ? (dark = true) : (dark = false);
 	};
-
-	// let markerUpdate = 0;
-
-	// $: markerUpdate, console.log($markers[1]);
 
 	$: choices, removeMarkers();
 </script>
@@ -97,13 +87,15 @@
 						label={'mother ship'}
 						bind={motherShip}
 						home={true}
-						on:click={() =>
+						on:click={(event) => {
+							changeMarker(event, $currentColor[0]);
 							getPopupInfo(
 								'Renaissance Montreal Downtown Hotel',
 								'',
 								'http://bitly.ws/RPx9',
 								'1250 Blvd Robert-Bourassa, Montréal, QC H3B 3B8'
-							)}
+							);
+						}}
 					/>
 					{#each choices as resto, index}
 						<MapMarker
@@ -113,8 +105,7 @@
 							markerColor={resto.markerColor}
 							bind={$markers[index]}
 							on:click={(event) => {
-								console.log('markers:', $markers);
-								changeMarker(event, resto.markerColor);
+								changeMarker(event, $currentColor[0]);
 								getPopupInfo(resto.label, resto.details, resto.url, resto.address);
 							}}
 						/>
@@ -203,6 +194,7 @@
 		transition: all 0.25s;
 		color: var(--color-primary);
 		border: 1px solid var(--color-purp);
+		font-family: monospace;
 	}
 	button:hover {
 		box-shadow: 4px 4px 8px var(--color-shadow);
