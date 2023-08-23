@@ -6,10 +6,10 @@
 	import { markers, currentColor } from '../stores.js';
 
 	export let data;
+	const { restos } = data;
 
 	let dark = false;
 	let motherShip;
-	const { restos } = data;
 
 	const categories = restos.map((el) => el.category);
 	const uniqueCategories = [...new Set(categories)];
@@ -79,7 +79,6 @@
 		</div>
 		<div class="map-wrapper">
 			<Map {dark} lat={45.52} lon={-73.569299} zoom={11}>
-				<!-- {#key markerUpdate} -->
 				{#key choices}
 					<MapMarker
 						lat={45.50289552120013}
@@ -111,7 +110,6 @@
 						/>
 					{/each}
 				{/key}
-				<!-- {/key} -->
 			</Map>
 		</div>
 

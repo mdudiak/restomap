@@ -25,7 +25,6 @@ html {
 	--color-secondary: rgba(255, 255, 255, 1);
 	--color-shadow: rgba(0, 0, 0, 0.25);
 	--color-glow: rgba(241, 131, 197, 0.8);
-	/* --color-glow: rgba(11, 251, 71, .8); */
 	--color-purp: rgba(241, 91, 181, .8);
 	--color-logo2: rgba(11, 251, 71, .8);
 	--color-logo: rgba(151, 11, 251, 1);

@@ -94,10 +94,20 @@ export const restaurants = [
 		lat: 45.522849225947226,
 		lon: -73.60193664509964,
 		details: 'Famous Montréal Bagels',
-		address: 'Rue Saint-Viateur Ouest',
+		address: '263 Rue Saint-Viateur Ouest',
 		url: 'http://www.stviateurbagel.com/',
-		category: 'bagel',
-		markerColor: 'rgba(254, 228, 64, .7)'
+		category: 'iconic',
+		markerColor: 'rgba(11, 251, 71, .8)'
+	},
+	{
+		label: `Schwartz's Deli`,
+		lat: 45.516508143617415,
+		lon: -73.57767228912742,
+		details: 'Famous Montréal smoked meat, maybe its worth lining  up for...',
+		address: '3895 St Laurent Blvd',
+		url: 'https://www.schwartzsdeli.com/',
+		category: 'iconic',
+		markerColor: 'rgba(11, 251, 71, .8)'
 	},
 	{
 		label: 'Crew Collective Cafe',
