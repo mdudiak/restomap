@@ -2,7 +2,9 @@
 	import '../app.css';
 	import Map from './Map.svelte';
 	import MapMarker from './MapMarker.svelte';
+
 	import Card from './Card.svelte';
+
 	import { markers, currentColor } from '../stores.js';
 
 	export let data;
@@ -11,8 +13,10 @@
 	let dark = false;
 	let motherShip;
 
-	const categories = restos.map((el) => el.category);
-	const uniqueCategories = [...new Set(categories)];
+	const uniqueCategoriesObj = new Object();
+	restos.forEach((el) => (uniqueCategoriesObj[el.category] = el.markerColor));
+
+	const uniqueCategories = Object.keys(uniqueCategoriesObj);
 
 	let choices = [];
 
@@ -119,7 +123,12 @@
 			</li>
 			{#each uniqueCategories as category}
 				<li>
-					<button on:click={() => getChoices(category)}>{category}</button>
+					<button
+						style={`--color-glow: ${uniqueCategoriesObj[category]}`}
+						on:click={() => {
+							getChoices(category);
+						}}>{category}</button
+					>
 				</li>
 			{/each}
 		</ul>
@@ -211,8 +220,6 @@
 		}
 
 		button {
-			/* color: var(--color-glow);
-			border: 1px solid var(--color-purp); */
 			color: white;
 			filter: drop-shadow(1px 1px 2px var(--color-orange))
 				drop-shadow(-1px -1px 2px var(--color-logo));
@@ -223,7 +230,17 @@
 		button:hover {
 			color: var(--color-primary);
 			background-color: var(--color-glow);
-			border: 3px solid var(--color-purp);
+			border: 3px solid var(--color-secondary);
+			filter: drop-shadow(1px 1px 2px var(--color-secondary))
+				drop-shadow(-1px -1px 2px var(--color-glow));
+		}
+
+		button:focus {
+			color: var(--color-primary);
+			background-color: var(--color-glow);
+			border: 3px solid var(--color-secondary);
+			filter: drop-shadow(1px 1px 2px var(--color-secondary))
+				drop-shadow(-1px -1px 2px var(--color-glow));
 		}
 	}
 </style>
