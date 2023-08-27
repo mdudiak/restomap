@@ -43,7 +43,7 @@ export const restaurants = [
 		label: 'Denise',
 		lat: 45.52886007351345,
 		lon: -73.61811503160494,
-		details: 'Small restaurant with great service and cocktails.',
+		details: 'Wine bar with a nice, rotating menu.',
 		address: '386 Beaumont Ave',
 		url: 'http://cafedenise.ca/',
 		category: 'dinner',
@@ -110,11 +110,31 @@ export const restaurants = [
 		markerColor: 'rgba(11, 251, 71, .8)'
 	},
 	{
+		label: `Wilensky's Light Lunch`,
+		lat: 45.52350449034666,
+		lon: -73.59484747592265,
+		details: 'Kosher deli counter serving bologna sandwiches and soda fountain coke.',
+		address: '34 Av. Fairmount O.',
+		url: 'http://www.wilenskys.com/',
+		category: 'iconic',
+		markerColor: 'rgba(11, 251, 71, .8)'
+	},
+	{
+		label: 'Nouveau Système Beaubien',
+		lat: 45.53328686551077,
+		lon: -73.60596274523893,
+		details: 'Hotdogs and poutine. Ask for "Une Toastie" to receive a special Montréal dog',
+		address: '323 Rue Beaubien E',
+		url: 'https://www.facebook.com/Nouveau-Systeme-Restaurant-2010217482595816/',
+		category: 'iconic',
+		markerColor: 'rgba(11, 251, 71, .8)'
+	},
+	{
 		label: 'Crew Collective Cafe',
 		lat: 45.502473015772345,
 		lon: -73.55932539630732,
 		details:
-			'Situated in a former bank headquarters in Old Montréal, this is the most spectacular setting for a latte in town.',
+			'Situated in a former bank headquarters in Old Montréal - a most spectacular setting for a latte.',
 		address: '360 Rue Saint-Jacques',
 		url: 'https://crewcollectivecafe.com/',
 		category: 'coffee',
@@ -124,7 +144,7 @@ export const restaurants = [
 		label: 'Café Névé',
 		lat: 45.52030697949866,
 		lon: -73.58045684112926,
-		details: 'Good neighbourhood coffee shop in the Plateau neighborhood',
+		details: 'Good neighbourhood coffee shop in the Plateau.',
 		address: '151 Rue Rachel E',
 		url: 'http://cafeneve.com/',
 		category: 'coffee',
