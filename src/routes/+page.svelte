@@ -203,10 +203,22 @@
 		border: 1px solid var(--color-purp);
 		font-family: monospace;
 	}
+
 	button:hover {
 		box-shadow: 4px 4px 8px var(--color-shadow);
 		color: var(--color-secondary);
-		background-color: var(--color-purp);
+		background-color: var(--color-glow);
+		border: 3px solid var(--color-primary);
+		filter: drop-shadow(1px 1px 2px var(--color-primary))
+			drop-shadow(-1px -1px 2px var(--color-glow));
+	}
+
+	button:focus {
+		color: var(--color-secondary);
+		background-color: var(--color-glow);
+		border: 3px solid var(--color-primary);
+		filter: drop-shadow(1px 1px 2px var(--color-primary))
+			drop-shadow(-1px -1px 2px var(--color-glow));
 	}
 
 	@media (prefers-color-scheme: dark) {
