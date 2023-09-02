@@ -70,6 +70,16 @@ export const restaurants = [
 		markerColor: 'rgba(155, 93, 229, .8)'
 	},
 	{
+		label: 'Elena',
+		lat: 45.46985434961996,
+		lon: -73.59168874774488,
+		details: 'Classy contemporary Italian',
+		address: '5090 Notre-Dame St W',
+		url: 'https://www.coffeepizzawine.com/',
+		category: 'dinner',
+		markerColor: 'rgba(155, 93, 229, .8)'
+	},
+	{
 		label: `Beauty's Restaurant`,
 		lat: 45.51923800932769,
 		lon: -73.58749751773573,
@@ -86,6 +96,16 @@ export const restaurants = [
 		details: 'Delicatessen meets waffles, might also have a lineup but is incredible.',
 		address: '4621 Notre-Dame St W',
 		url: 'http://arthursmtl.com/',
+		category: 'brunch',
+		markerColor: 'rgba(254, 228, 64, .7)'
+	},
+	{
+		label: `Byblos le Petit Café`,
+		lat: 45.53487887332189,
+		lon: -73.58283688650756,
+		details: 'Traditional Persian resto. Great egg dishes, tons of herby sauces, great tea. ',
+		address: '1499 Ave Laurier Est',
+		url: 'https://www.bybloslepetitcafe.com/',
 		category: 'brunch',
 		markerColor: 'rgba(254, 228, 64, .7)'
 	},
@@ -217,6 +237,16 @@ export const restaurants = [
 		details: 'French-style cafe, light fare, drinks, etc',
 		address: '5201 St Laurent Blvd',
 		url: 'https://lawrencemtl.com/larrys',
+		category: 'drinks',
+		markerColor: 'rgba(0, 187, 249,  .7)'
+	},
+	{
+		label: `Loïc`,
+		lat: 45.47072868687221,
+		lon: -73.59106966030014,
+		details: 'St Henri hotspot, busy late - nice small plates.',
+		address: '5001 Notre-Dame St W',
+		url: 'http://barloic.ca/',
 		category: 'drinks',
 		markerColor: 'rgba(0, 187, 249,  .7)'
 	}
