@@ -2,6 +2,7 @@
 	import { getContext, createEventDispatcher, onDestroy } from 'svelte';
 	import { mapbox, key } from './mapbox';
 	import { markers, currentColor } from '../stores';
+	import logo from '$lib/icons/Icon_Black.png';
 
 	const { getMap } = getContext(key);
 	const map = getMap();
@@ -46,7 +47,7 @@
 
 	const el = document.createElement('div');
 	el.className = 'marker';
-	el.style.backgroundImage = 'url(src/lib/icons/Icon_Black.png)';
+	el.style.backgroundImage = `url(${logo})`;
 	el.style.width = '32px';
 	el.style.height = '41px';
 	el.style.backgroundSize = 'cover';
@@ -75,14 +76,3 @@
 		}
 	});
 </script>
-
-<!-- <style>
-	div {
-		background-image: url(logo);
-		width: 29px;
-		height: 34px;
-		background-size: cover;
-		filter: invert(80%) drop-shadow(1px 1px 2px markerColor) drop-shadow(-1px -1px 2px markerColor);
-		cursor: pointer;
-	}
-</style> -->

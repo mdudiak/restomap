@@ -140,7 +140,6 @@
 		width: 100vw;
 		min-height: 100vh;
 		position: relative;
-		/* background-image: var(--gradient-9); */
 	}
 
 	.container {
