@@ -156,6 +156,7 @@
 		place-items: center;
 		gap: 1rem;
 		color: var(--color-primary);
+		padding-block-end: 1rem;
 	}
 
 	.map-wrapper {
@@ -181,9 +182,12 @@
 		border: 1px solid var(--color-purp);
 		box-shadow: 2px 2px 4px var(--color-shadow);
 		display: flex;
+		flex-wrap: wrap;
 		flex-direction: row;
 		align-items: center;
 		justify-content: space-evenly;
+		padding: 1rem;
+		gap: 1rem;
 	}
 
 	li {
