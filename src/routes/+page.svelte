@@ -66,6 +66,12 @@
 
 <svelte:window on:change={getUserPref()} />
 
+<svelte:head>
+	<title>Home</title>
+	<meta name="description" content="Eternity Now" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</svelte:head>
+
 <div class="page">
 	<div class="container">
 		<div class="card-wrapper">
@@ -138,8 +144,9 @@
 <style>
 	.page {
 		width: 100vw;
-		min-height: 100vh;
+		height: 100vh;
 		position: relative;
+		color: var(--color-primary);
 	}
 
 	.container {
@@ -155,7 +162,7 @@
 		place-content: center;
 		place-items: center;
 		gap: 1rem;
-		color: var(--color-primary);
+
 		padding-block-end: 1rem;
 	}
 
