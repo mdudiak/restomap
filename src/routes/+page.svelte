@@ -68,7 +68,7 @@
 
 <svelte:head>
 	<title>Home</title>
-	<meta name="description" content="Eternity Now" />
+	<meta name="description" content="Montreal restaurant map" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </svelte:head>
 
