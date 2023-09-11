@@ -188,9 +188,8 @@
 		border-radius: 5px;
 		border: 1px solid var(--color-purp);
 		box-shadow: 2px 2px 4px var(--color-shadow);
-		display: flex;
-		flex-wrap: wrap;
-		flex-direction: row;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
 		align-items: center;
 		justify-content: space-evenly;
 		padding: 1rem;
@@ -229,6 +228,14 @@
 		border: 3px solid var(--color-secondary);
 		filter: drop-shadow(1px 1px 2px var(--color-primary))
 			drop-shadow(-1px -1px 2px var(--color-glow));
+	}
+
+	@media screen and (min-width: 600px) {
+		ul {
+			display: flex;
+			flex-wrap: wrap;
+			flex-direction: row;
+		}
 	}
 
 	@media (prefers-color-scheme: dark) {
